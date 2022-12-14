@@ -33,13 +33,7 @@ fi
 if [ $scriptAction == 'INSTALL' ] ; then
     logMessage "++ Installing gpsdReciever"
 
-    updateActiveFile "$overviewMobileFile"
-
     installService $packageName
-
-    if $filesUpdated ; then
-        restartGui=true
-    fi
 fi
 
 # #### uninstalling - check scriptAction again
@@ -48,10 +42,6 @@ if [ $scriptAction == 'UNINSTALL' ] ; then
     logMessage "++ Uninstalling gpdsReceiver"
 
     removeService $packageName
-fi
-
-if $filesUpdated ; then
-    restartGui=true
 fi
 
 # thats all folks - SCRIPT EXITS INSIDE THE FUNCTION
